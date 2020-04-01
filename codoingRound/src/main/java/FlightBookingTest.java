@@ -24,7 +24,7 @@ public class FlightBookingTest {
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://www.cleartrip.com/");
         driver.manage().window().maximize();
-        waitFor(2000);
+        waitFor(5000);
         driver.findElement(By.id("OneWay")).click();
 
         driver.findElement(By.id("FromTag")).clear();
@@ -54,7 +54,7 @@ public class FlightBookingTest {
 
         waitFor(5000);
         //verify that result appears for the provided journey search
-        //Assert.assertTrue(isElementPresent(By.className("searchSummary")));
+        Assert.assertTrue(isElementPresent(By.xpath("//div[contains(@class,'resultContainer')]")));
 
         //close the browser
         driver.quit();

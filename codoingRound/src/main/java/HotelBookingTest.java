@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
@@ -30,6 +31,7 @@ public class HotelBookingTest {
     	options.addArguments("--disable-notifications");
         setDriverPath();
         WebDriver driver = new ChromeDriver(options);
+        PageFactory.initElements(driver, this);
         driver.get("https://www.cleartrip.com/");
         driver.manage().window().maximize();
         waitFor(5000);

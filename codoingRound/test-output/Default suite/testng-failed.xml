@@ -3,11 +3,11 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="HotelBookingTest">
+      <class name="FlightBookingTest">
         <methods>
-          <include name="shouldBeAbleToSearchForHotels"/>
+          <include name="testThatResultsAppearForAOneWayJourney"/>
         </methods>
-      </class> <!-- HotelBookingTest -->
+      </class> <!-- FlightBookingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
