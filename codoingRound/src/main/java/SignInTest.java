@@ -1,7 +1,10 @@
 import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,14 +15,24 @@ public class SignInTest {
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
 
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--disable-notifications");
         setDriverPath();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(options);
         driver.get("https://www.cleartrip.com/");
-        waitFor(2000);
-
+        driver.manage().window().maximize();
+        waitFor(5000);
+        //Actions actions=new Actions(driver);
+        //actions.sendKeys(Keys.ESCAPE).build().perform();
+        
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
-
+        int size=driver.findElements(By.tagName("iframe")).size();
+        System.out.println("size="+size);
+        if(size > 0) {
+        driver.switchTo().frame("modal_window");
+        }
+        waitFor(5000);
         driver.findElement(By.id("signInButton")).click();
 
         String errors1 = driver.findElement(By.id("errors1")).getText();
