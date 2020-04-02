@@ -10,8 +10,6 @@ import org.testng.annotations.Test;
 
 public class SignInTest {
 
-    WebDriver driver = null;
-
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
 
