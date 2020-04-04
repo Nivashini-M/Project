@@ -27,7 +27,7 @@ public class Utility extends BaseClass{
 	
 	public boolean isElementPresent(By by) {
         try {
-            driver.findElement(by);
+            element(by);
             return true;
         } catch (NoSuchElementException e) {
             return false;

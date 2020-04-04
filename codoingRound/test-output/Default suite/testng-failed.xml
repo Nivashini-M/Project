@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test parallel="none" name="Default test(failed)">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="FlightBookingTest">
         <methods>
           <include name="testThatResultsAppearForAOneWayJourney"/>
+          <include name="wrapSuite"/>
+          <include name="wrapUp"/>
+          <include name="initTest"/>
+          <include name="initSuite"/>
+          <include name="initClass"/>
         </methods>
       </class> <!-- FlightBookingTest -->
     </classes>

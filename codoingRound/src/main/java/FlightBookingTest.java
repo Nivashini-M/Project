@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -19,9 +20,13 @@ public class FlightBookingTest extends HomePage {
 	@BeforeClass
 	public void initClass() {
 		getDriver();
+		}
+	
+	@BeforeMethod
+	public void initTest() {
 		navigate();
 	}
-
+	
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
     	click(oneWay);
@@ -38,7 +43,7 @@ public class FlightBookingTest extends HomePage {
     }
     
     
-   // @Test
+   @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
 	    click(yourTrips);
 	    click(signIn);

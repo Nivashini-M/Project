@@ -22,23 +22,24 @@ public class HomePage extends Utility{
 	public By error=By.id("errors1");
 	public By hotelLink=By.linkText("Hotels");
 	
-	int frameSize=driver.findElements(By.tagName("iframe")).size();
+	
 	
 	public void switchToSignInFrame() {
+		int frameSize=driver.findElements(By.tagName("iframe")).size();
 		if(frameSize > 0) {
 		     driver.switchTo().frame("modal_window");
 		     }
 	}
 	
 	public void selectOrigin() {
-		List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
 		waitFor(5000);
-		originOptions.get(0).clear();;
+		List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
+		originOptions.get(0).click();
 	}
 
 	public void selectDestination() {
-		List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));
 		waitFor(5000);
+		List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));
 	    destinationOptions.get(0).click();
 	}
 
